@@ -1,0 +1,13 @@
+
+1-Cria população com rede neural aleatoria//Inicia Jogo, se a populacao ja tiver criada
+
+2-Joga 4 waves= cada wave o jogador tem que matar bichos e tem tempo para isso: pontuacao por tempo e mortes de bichinhos
+
+3-A cada 4 partidas os jogadores sao apresentados e o melhor tem relevo
+
+4-O melhor fica salvo 
+
+5-Cruza todos com o melhor 
+
+6-Reinicia o jogo
+
