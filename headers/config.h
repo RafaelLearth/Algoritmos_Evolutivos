@@ -3,15 +3,15 @@
 #define CONFIG_H
 
 #ifdef __APPLE__
-    #include <GLUT/glut.h>
+#include <GLUT/glut.h>
 #else
-    #include <GL/glut.h>
+#include <GL/glut.h>
 #endif
 #include <iostream>
 #include <math.h>
-#include <vector>
-#include <string.h>
 #include <sstream>
+#include <string.h>
+#include <vector>
 using namespace std;
 
 #define windowWidth 1000

@@ -2,8 +2,8 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-#include <string>
 #include <map>
+#include <string>
 #include <unordered_set>
 
 using namespace std;
@@ -21,7 +21,7 @@ void strangePolygon(float x, float y);
 void anotherStrangePolygon(float x, float y);
 void displayText(std::string text, float data, float x, float y);
 
-//VARIAVEIS GLOBAIS
+// VARIAVEIS GLOBAIS
 extern float clickx;
 extern float clicky;
 extern float TIME;
