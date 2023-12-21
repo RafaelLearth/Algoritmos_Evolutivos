@@ -391,16 +391,14 @@ int Load() {
 
 // Função para selecionar o melhor BixinhoEvolutivo com base nas pontuações
 void SelecionaMelhor() {
-    bool escolheuNovoMelhor = false;
-    for(int i = 0; i < (int)ListaEvolutiva.size(); i++) {
-        if(ListaEvolutiva[i].pontuacao >= melhor.pontuacao) {
-            IndexMelhor = i;
-            escolheuNovoMelhor = true;
-        }
-    }
-    if(escolheuNovoMelhor) {
-        melhor = ListaEvolutiva[IndexMelhor];
-    }  
+  int pontuacao = 0;
+  for(int i = 0; i < (int)ListaEvolutiva.size(); i++) {
+      if(ListaEvolutiva[i].pontuacao >= pontuacao) {
+          pontuacao = ListaEvolutiva[i].pontuacao;
+          IndexMelhor = i;
+      }
+  }
+  melhor = ListaEvolutiva[IndexMelhor];    
 }
 
 // Função para contar quantos BixinhosEvolutivos estão vivos
@@ -860,7 +858,9 @@ void timer(int) {
         SelecionaMelhor();
 
         for (int i = 0; i < (int)ListaEvolutiva.size(); i++) {
-          Reproducao(ListaEvolutiva[i], melhor);
+          if (i != IndexMelhor){
+            Reproducao(ListaEvolutiva[i], melhor);
+          }
           ListaEvolutiva[i].exist = true;
           ListaEvolutiva[i].x = -0.2 + (rand() % 400) / 1000.0f;
           ListaEvolutiva[i].y = -0.2 + (rand() % 400) / 1000.0f;
@@ -871,7 +871,7 @@ void timer(int) {
         wave = 1;
         populacao++;
       } else {
-        SelecionaMelhor();
+        //SelecionaMelhor();
 
         for (int i = 0; i < (int)ListaEvolutiva.size(); i++) {
           ListaEvolutiva[i].exist = true;
@@ -914,21 +914,31 @@ void timer(int) {
 
         //if (i == 0) cout << "Output" << endl;
         vector<double> output = OutputLayer(ListaEvolutiva[i], inputs);
+        std::vector<int> indices(output.size());
+    
+        // Inicializar o vetor de índices
+        for (int j = 0; j < (int)indices.size(); ++j) {
+            indices[j] = j;
+        }
 
+        // Ordenar os índices com base nos valores
+        std::sort(indices.begin(), indices.end(),
+                  [&output](int a, int b) {
+                      return output[a] > output[b];
+                  });
         // Defina limiares para ações opostas
-        for (size_t j = 0; j < output.size(); ++j) {
+        for (size_t j = 0; j < 3; ++j) {
           //if (i == 0) cout << output[j] << endl;
-
-          if (output[j] > 0.9) {
             // Verifique se o número oposto (1 para 0 e 3 para 4) não está no vetor
-            if ((j == 1 && std::find(actions.begin(), actions.end(), 0) == actions.end()) ||
-                (j == 4 && std::find(actions.begin(), actions.end(), 3) == actions.end())) {
-              actions.push_back(j);
+            if ((indices[j] == 1 && std::find(actions.begin(), actions.end(), 0) == actions.end()) ||
+                (indices[j] == 0 && std::find(actions.begin(), actions.end(), 1) == actions.end()) ||
+                (indices[j] == 4 && std::find(actions.begin(), actions.end(), 3) == actions.end()) ||
+                (indices[j] == 3 && std::find(actions.begin(), actions.end(), 4) == actions.end())) {
+              actions.push_back(indices[j]);
             } else {
               // Para os números 2, apenas insira
-              actions.push_back(j);
+              actions.push_back(indices[j]);
             }
-          }
         }
 
         // Executa as ações correspondentes
@@ -1297,21 +1307,21 @@ void tabelaInfo(){
     
     displayText("Populacao:", populacao, -1.0f, 0.9f);
     
-    displayText("Indivíduos Vivos:", bixinhos.size(), -1.0f, 0.85f);
+    displayText("Inimigos Vivos:", bixinhos.size(), -1.0f, 0.85f);
     
     displayText("Pontuacao do melhor Individuo:", melhor.pontuacao, -1.0f, 0.8f);
     
-    //displayText("Indice da Rede Neural do melhor inviduo:",IndexMelhor,-1.0f,0.75f);
+    displayText("Indice da Rede Neural do melhor inviduo:",IndexMelhor,-1.0f,0.75f);
 
-    displayText("Numero de balas:", balas.size(), -1.0f, 0.75f);
+    displayText("Numero de balas:", balas.size(), -1.0f, 0.7f);
 
-    displayText("Velocidade:", bixinhos.size() > 0 ? bixinhos[0].vel : 0, -1.0f, 0.7f);
+    displayText("Velocidade:", bixinhos.size() > 0 ? bixinhos[0].vel : 0, -1.0f, 0.65f);
     
-    displayText("Click foi feito em x:", clickx, -1.0f, 0.65f);
+    displayText("Click foi feito em x:", clickx, -1.0f, 0.6f);
     
-    displayText("Click foi feito em y:", clicky, -1.0f, 0.6f);
+    displayText("Click foi feito em y:", clicky, -1.0f, 0.55f);
     
-    displayText("Redes Evolutivas vivas:", vivos, -1.0f, 0.55f);
+    displayText("Individuos vivos:", vivos, -1.0f, 0.5f);
     
     displayText("Wave ", wave, 0.75f, 0.95f);
     
