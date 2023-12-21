@@ -491,7 +491,7 @@ double propagate(Neuron &neuron, const vector<double> &inputs) {
 vector<double> OutputLayer(BixinhoEvolutivo &player, vector<double>& inputs) {
     vector<double> current_outputs = inputs;
 
-    if(TIME%30==0 && player.pontuacao != melhor.pontuacao) Reproducao(player, player);
+    if(TIME%30==0) Reproducao(player, player);
 
     for (auto &layer : player.hidden_layers) {
         vector<double> next_outputs(layer.size());
@@ -743,7 +743,7 @@ void mataBixinho() {
       if ((dist <= bixinhos[j].radius + 0.02f) && bixinhos[j].exist == true && balas[i].exist == true) {
         bixinhos[j].exist = false;
         balas[i].exist = false;
-        ListaEvolutiva[balas[i].index].pontuacao += 1000;
+        ListaEvolutiva[balas[i].index].pontuacao += 500;
         // Remove a bala e o bixinho atingidos
         balas.erase(balas.begin() + i);
         bixinhos.erase(bixinhos.begin() + j);
@@ -826,26 +826,25 @@ void timer(int) {
 
     // Gera balas periodicamente
     vector<int> QtdBalas(ListaEvolutiva.size());
-    if ((int)TIME % 10) {
+    if ((int)TIME % 100) {
       for (int i = 0; i < (int)ListaEvolutiva.size(); i++) {
         QtdBalas[i] += 50;
       }
     }
 
     // Condições para criar novos bixinhos e selecionar o melhor
-    if (((int)TIME % 250) == 0 || QuantidadeVivos() == 0) {   
+    if (((int)TIME % 250) == 0 || QuantidadeVivos() == 0) {
+      TIME = 0;
       bixinhos.clear();
 
       for (int i = 0; i < (int)ListaEvolutiva.size(); i++) {
         // Atualiza pontuações e reseta posições
         if (ListaEvolutiva[i].exist == true) {
-          ListaEvolutiva[i].pontuacao += 75000;
+          ListaEvolutiva[i].pontuacao += 1250;
         } else {
-          ListaEvolutiva[i].pontuacao += TIME * 50;
+          ListaEvolutiva[i].pontuacao -= 1000;
         }
       }
-
-      TIME = 0;
 
       tipo++;
       wave++;
@@ -914,12 +913,12 @@ void timer(int) {
       if (ListaEvolutiva[i].exist) {
         vector<double> inputs = {(double)bixinhos.size(), menordx[i], menordy[i], ListaEvolutiva[i].x, ListaEvolutiva[i].y, ListaEvolutiva[i].theta};
 
-        //if (i == 0) cout << "Output" << endl;
+        if (i == 0) cout << "Output" << endl;
         vector<double> output = OutputLayer(ListaEvolutiva[i], inputs);
 
         // Defina limiares para ações opostas
         for (size_t j = 0; j < output.size(); ++j) {
-          //if (i == 0) cout << output[j] << endl;
+          if (i == 0) cout << output[j] << endl;
 
           if (output[j] > 0.9) {
             // Verifique se o número oposto (1 para 0 e 3 para 4) não está no vetor
@@ -937,10 +936,10 @@ void timer(int) {
         for (int action : actions) {
           switch (action) {
             case 0:
-              moveBixinhoEvo(&ListaEvolutiva[i], -0.02);
+              moveBixinhoEvo(&ListaEvolutiva[i], 0.02);
               break;
             case 1:
-              moveBixinhoEvo(&ListaEvolutiva[i], 0.02);
+              moveBixinhoEvo(&ListaEvolutiva[i], -0.02);
               break;
             case 2:
               if (QtdBalas[i] > 0 && TIME % 2 == 0) {
@@ -974,6 +973,7 @@ void timer(int) {
 
         if (dist <= bixinhos[i].radius + ListaEvolutiva[j].radius && ListaEvolutiva[j].exist == true) {
           ListaEvolutiva[j].exist = false;
+          ListaEvolutiva[j].pontuacao += TIME * 5;
         }
       }
     }
@@ -1305,15 +1305,15 @@ void tabelaInfo(){
     
     //displayText("Indice da Rede Neural do melhor inviduo:",IndexMelhor,-1.0f,0.75f);
 
-    displayText("Numero de balas:", balas.size(), -1.0f, 0.75f);
+    displayText("Numero de balas:", balas.size(), -1.0f, 0.7f);
 
-    displayText("Velocidade:", bixinhos.size() > 0 ? bixinhos[0].vel : 0, -1.0f, 0.7f);
+    displayText("Velocidade:", bixinhos.size() > 0 ? bixinhos[0].vel : 0, -1.0f, 0.65f);
     
-    displayText("Click foi feito em x:", clickx, -1.0f, 0.65f);
+    displayText("Click foi feito em x:", clickx, -1.0f, 0.60f);
     
-    displayText("Click foi feito em y:", clicky, -1.0f, 0.6f);
+    displayText("Click foi feito em y:", clicky, -1.0f, 0.55f);
     
-    displayText("Redes Evolutivas vivas:", vivos, -1.0f, 0.55f);
+    displayText("Redes Evolutivas vivas:", vivos, -1.0f, 0.50f);
     
     displayText("Wave ", wave, 0.75f, 0.95f);
     
