@@ -860,9 +860,7 @@ void timer(int) {
         SelecionaMelhor();
 
         for (int i = 0; i < (int)ListaEvolutiva.size(); i++) {
-          if (i != IndexMelhor) {
-            Reproducao(ListaEvolutiva[i], melhor);
-          }
+          Reproducao(ListaEvolutiva[i], melhor);
           ListaEvolutiva[i].exist = true;
           ListaEvolutiva[i].x = -0.2 + (rand() % 400) / 1000.0f;
           ListaEvolutiva[i].y = -0.2 + (rand() % 400) / 1000.0f;
