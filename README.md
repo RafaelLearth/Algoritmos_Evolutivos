@@ -11,10 +11,12 @@
 [Vídeo]()
 
 ## Descrição do Projeto
-![RedeNeural](alg_evolutivo.png)
-![Algoritmo Evolutivo](AlgEvolutivo.png)
-[Apresentação](https://www.canva.com/design/DAF3jLBKRBw/SKJhPLyK9EKxtpaHolTpVw/edit)
+<p align="center">
+  <img src="alg_evolutivo.png" alt="RedeNeural" width="300" />
+  <img src="AlgEvolutivo.png" alt="Algoritmo Evolutivo" width="300" />
+</p>
 
+[Apresentação](https://www.canva.com/design/DAF3jLBKRBw/SKJhPLyK9EKxtpaHolTpVw/edit)
 ## Build
 
 ### Instalação:
