@@ -11,7 +11,7 @@
 [Vídeo]()
 
 ## Descrição do Projeto
-![RedeNeural](alg evolutivo.png)
+![RedeNeural](alg_evolutivo.png)
 ![Algoritmo Evolutivo](AlgEvolutivo.png)
 [Apresentação](https://www.canva.com/design/DAF3jLBKRBw/SKJhPLyK9EKxtpaHolTpVw/edit)
 
