@@ -1029,7 +1029,7 @@ void mouse(int button, int state, int x, int y) {
 void criaMonstro(int tipo) {
   float X, Y;
   // Cria 1000 bixinhos em posições aleatórias com base no tipo
-  for (int i = 0; i < 1000; i++) {
+  for (int i = 0; i < 200; i++) {
     switch (tipo) {
       case 1:
         X = 0.4 + (rand() % 300) / 1000.0f;  // (0.4:0.6)
