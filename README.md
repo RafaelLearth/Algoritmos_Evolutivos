@@ -12,7 +12,7 @@
 
 ## Descrição do Projeto
 <p align="center">
-  <img src="alg_evolutivo.png" alt="RedeNeural" width="200" />
+  <img src="alg_evolutivo.png" alt="RedeNeural" width="300" />
   <img src="AlgEvolutivo.png" alt="Algoritmo Evolutivo" width="400" />
 </p>
 
