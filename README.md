@@ -14,12 +14,12 @@
 
 ## Build
 
-### Bibliotecas necessárias:
-- 
-- 
-- 
-
-Entrar no diretório raiz e executar
+### Instalação:
+```
+$ sudo apt-get install mesa-common-dev
+$ sudo apt-get install freeglut3-dev
+```
+Execução:
 ```
 make run
 ```
