@@ -12,8 +12,8 @@
 
 ## Descrição do Projeto
 <p align="center">
-  <img src="alg_evolutivo.png" alt="RedeNeural" width="500" />
-  <img src="AlgEvolutivo.png" alt="Algoritmo Evolutivo" width="500" />
+  <img src="alg_evolutivo.png" alt="RedeNeural" width="200" />
+  <img src="AlgEvolutivo.png" alt="Algoritmo Evolutivo" width="400" />
 </p>
 
 [Apresentação](https://www.canva.com/design/DAF3jLBKRBw/SKJhPLyK9EKxtpaHolTpVw/edit)
