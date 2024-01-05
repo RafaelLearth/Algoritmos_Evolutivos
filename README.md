@@ -1,11 +1,25 @@
-# Algoritmos_Evolutivos
+# Algoritmos Evolutivos
 
+## Autores
 
-<img src="alg evolutivo.png">
+- Rafael Cunha Bejes Learth - 13676367
+- Matheus Pereira Dias - 11207752
+- Gabriela Passos de Andrade - 12625142
+- Bárbara Fernandes Madera - 11915032
 
-Projeto realizado em linguagem C++ com interface em OpenGL
-No Github tem a versão 8 que funciona totalmente, é a interface do projeto com a descrição que se encontra em EsquemaCodigoEvolutivo
-a versão 9 é a aplicação da Rede Neural que ainda está em criação
+## Link Vídeo
+[Vídeo]()
 
-Versão 8:
-<img src="Versao8.png">
+## Descrição do Projeto
+
+## Build
+
+### Bibliotecas necessárias:
+- 
+- 
+- 
+
+Entrar no diretório raiz e executar
+```
+make run
+```
