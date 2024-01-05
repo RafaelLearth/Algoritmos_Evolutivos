@@ -489,7 +489,7 @@ double propagate(Neuron &neuron, const vector<double> &inputs) {
 vector<double> OutputLayer(BixinhoEvolutivo &player, vector<double>& inputs) {
     vector<double> current_outputs = inputs;
 
-    if(TIME%30==0 && player.pontuacao != melhor.pontuacao) Reproducao(player, player);
+    //if(TIME%30==0 && player.pontuacao != melhor.pontuacao) Reproducao(player, player);
 
     for (auto &layer : player.hidden_layers) {
         vector<double> next_outputs(layer.size());
