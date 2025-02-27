@@ -2,10 +2,10 @@
 
 ## Autores
 
-- Rafael Cunha Bejes Learth - 13676367
-- Matheus Pereira Dias - 11207752
-- Gabriela Passos de Andrade - 12625142
-- Bárbara Fernandes Madera - 11915032
+- Rafael Cunha Bejes Learth - 13676367 - [GitHub](https://github.com/RafaelLearth)  
+- Matheus Pereira Dias - 11207752 - [GitHub](https://github.com/matheuspd)  
+- Gabriela Passos de Andrade - 12625142 - [GitHub](https://github.com/gabipandrade)  
+- Bárbara Fernandes Madera - 11915032 - [GitHub](https://github.com/barbarafernandesmadera)  
 
 ## Link Vídeo
 [Vídeo](https://drive.google.com/drive/folders/1P9BWyQ9vawuB0OliVF-LcZVavv-KX5_t)
